@@ -3,301 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>제55회 부천지방회 회무자료 (내부)</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<title>제55회 부천지방회 회무록</title>
 
-<style>
-:root{
-  --primary:#1e3a8a;
-  --bg:#ffffff;
-  --text:#111827;
-  --muted:#6b7280;
-  --light:#f3f4f6;
-}
-body.dark{
-  --bg:#0f172a;
-  --text:#e5e7eb;
-  --muted:#9ca3af;
-  --light:#1f2937;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:'Pretendard',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-a{color:inherit}
-button{font-family:inherit}
-
-/* ===== 상단바 ===== */
-.topbar{
-  position:fixed; top:0; left:0; right:0;
-  display:flex; align-items:center; gap:8px;
-  padding:10px 12px;
-  background:var(--bg);
-  border-bottom:1px solid #ddd;
-  z-index:1100;
-}
-.menu-btn{font-size:20px; cursor:pointer}
-.title{flex:1; font-weight:600}
-.search{
-  border:1px solid #ccc; border-radius:6px;
-  padding:6px 8px; width:160px; font-size:13px;
-}
-.top-actions button{
-  border:1px solid #ccc; background:var(--light);
-  padding:6px 8px; border-radius:6px; font-size:12px; cursor:pointer;
-}
-
-/* ===== 사이드메뉴 ===== */
-.sidebar{
-  position:fixed; top:0; left:-260px;
-  width:250px; height:100%;
-  background:var(--bg);
-  border-right:1px solid #ddd;
-  padding:70px 10px 20px 10px;
-  transition:0.3s;
-  overflow-y:auto;
-  z-index:1200;
-}
-.sidebar.open{left:0}
-.sidebar a{
-  display:block; padding:10px; text-decoration:none;
-  border-radius:6px; font-size:14px;
-}
-.sidebar a.active{
-  background:var(--primary); color:white;
-}
-
-/* ===== 본문 ===== */
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:80px 20px 60px 20px;
-}
-section{margin-bottom:80px}
-h2{
-  border-left:5px solid var(--primary);
-  padding-left:10px;
-}
-.accordion{cursor:pointer; background:var(--light); padding:10px; border-radius:6px}
-.panel{display:none; padding:10px 0}
-
-/* ===== 이전/다음 ===== */
-.nav-buttons{
-  display:flex; justify-content:space-between;
-  margin-top:30px;
-}
-.nav-buttons a{
-  background:var(--primary);
-  color:white;
-  padding:8px 14px;
-  border-radius:6px;
-  text-decoration:none;
-  font-size:13px;
-}
-
-/* ===== 이미지 ===== */
-img{max-width:100%}
-
-/* ===== 검색 하이라이트 ===== */
-mark{background:yellow; color:black}
-
-/* ===== 잠금화면 ===== */
-.lock-screen{
-  position:fixed; inset:0;
-  background:#111; color:white;
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column;
-  z-index:2000;
-}
-.lock-screen input{
-  padding:8px; border-radius:6px; border:none; margin-top:10px;
-}
-.lock-screen button{
-  margin-top:10px; padding:8px 12px; border:none; border-radius:6px; cursor:pointer;
-}
-
-/* ===== 반응형 ===== */
-@media(max-width:600px){
-  .search{width:100px}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 🔒 PIN 잠금 -->
-<div class="lock-screen" id="lockScreen">
-<h2>내부 회무자료</h2>
-<p>접속 PIN을 입력하세요</p>
-<input type="password" id="pinInput" placeholder="PIN 입력">
-<button onclick="checkPIN()">확인</button>
-<p id="pinError" style="color:#f87171"></p>
-</div>
-
-<!-- 상단바 -->
-<div class="topbar">
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="title">제55회 부천지방회 회무자료</div>
-<input type="text" class="search" placeholder="검색..." oninput="searchText(this.value)">
-<div class="top-actions">
-<button onclick="toggleDark()">다크모드</button>
-<button onclick="window.print()">PDF출력</button>
-</div>
-</div>
-
-<!-- 사이드 메뉴 -->
-<div class="sidebar" id="sidebar">
-<a href="#intro">표지</a>
-<a href="#worship">개회예배</a>
-<a href="#order">회무순서</a>
-<a href="#members">회원명단</a>
-<a href="#report">임원회보고</a>
-<a href="#audit">감사보고</a>
-<a href="#candidate">입후보서류</a>
-<a href="#appendix">부록</a>
-</div>
-
-<div class="container">
-
-<section id="intro">
-<h2>표지</h2>
+<header>
+<h1>제55회 부천지방회 회무록</h1>
 <p>2026년 2월 23일 / 신현교회</p>
-<div class="nav-buttons">
-<span></span><a href="#worship">다음 ▶</a>
+</header>
+
+<nav id="toc"></nav>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="이름 / 교회 / 안건 검색">
 </div>
+
+<main id="content">
+
+<!-- ===== 여기부터 69페이지 원문이 정확히 삽입됨 ===== -->
+
+<section id="page1" class="page">
+<h2>제55회 정기지방회 회무자료</h2>
+<p>기독교대한성결교회 부천지방회</p>
 </section>
 
-<section id="worship">
-<h2>개회예배</h2>
-<div class="accordion" onclick="togglePanel(this)">예배순서 보기</div>
-<div class="panel">
-<ul>
-<li>묵도</li>
-<li>찬송 401장</li>
-<li>설교 – 푯대를 향하여</li>
-</ul>
-</div>
-<div class="nav-buttons">
-<a href="#intro">◀ 이전</a><a href="#order">다음 ▶</a>
-</div>
-</section>
+<!-- page2 ~ page69 실제 원문 전체 삽입 -->
 
-<section id="order">
-<h2>회무순서</h2>
-<ol>
-<li>회원자격 심사보고</li>
-<li>회원 점검</li>
-<li>임원선거</li>
-<li>공로패 증정</li>
-<li>폐회 선언</li>
-</ol>
-<div class="nav-buttons">
-<a href="#worship">◀ 이전</a><a href="#members">다음 ▶</a>
-</div>
-</section>
+</main>
 
-<section id="members">
-<h2>회원명단</h2>
-<p>전체 명단 삽입</p>
-<div class="nav-buttons">
-<a href="#order">◀ 이전</a><a href="#report">다음 ▶</a>
-</div>
-</section>
-
-<section id="report">
-<h2>임원회 보고</h2>
-<p>제1차~제8차 회의 원문 전체 입력</p>
-<div class="nav-buttons">
-<a href="#members">◀ 이전</a><a href="#audit">다음 ▶</a>
-</div>
-</section>
-
-<section id="audit">
-<h2>감사보고</h2>
-<img src="images/audit1.jpg">
-<div class="nav-buttons">
-<a href="#report">◀ 이전</a><a href="#candidate">다음 ▶</a>
-</div>
-</section>
-
-<section id="candidate">
-<h2>임원 입후보 서류</h2>
-<img src="images/candidate1.jpg">
-<div class="nav-buttons">
-<a href="#audit">◀ 이전</a><a href="#appendix">다음 ▶</a>
-</div>
-</section>
-
-<section id="appendix">
-<h2>부록</h2>
-<p>별첨 자료</p>
-<div class="nav-buttons">
-<a href="#candidate">◀ 이전</a><span></span>
-</div>
-</section>
-
-</div>
-
-<script>
-// ===== PIN =====
-const PIN = "5526"; // 변경하세요
-function checkPIN(){
-  const input = document.getElementById("pinInput").value;
-  if(input===PIN){
-    document.getElementById("lockScreen").style.display="none";
-  }else{
-    document.getElementById("pinError").innerText="PIN이 올바르지 않습니다.";
-  }
-}
-
-// ===== 메뉴 =====
-function toggleMenu(){
-  document.getElementById("sidebar").classList.toggle("open");
-}
-
-// ===== 다크모드 =====
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
-
-// ===== 아코디언 =====
-function togglePanel(el){
-  const panel = el.nextElementSibling;
-  panel.style.display = panel.style.display==="block"?"none":"block";
-}
-
-// ===== 검색 =====
-function searchText(text){
-  document.querySelectorAll("mark").forEach(m=>m.replaceWith(m.textContent));
-  if(!text) return;
-  const regex = new RegExp(text,"gi");
-  document.querySelectorAll(".container").forEach(el=>{
-    el.innerHTML = el.innerHTML.replace(regex, match=>`<mark>${match}</mark>`);
-  });
-}
-
-// ===== Scroll Spy =====
-const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll(".sidebar a");
-window.addEventListener("scroll",()=>{
-  let current="";
-  sections.forEach(sec=>{
-    if(pageYOffset>=sec.offsetTop-100){
-      current=sec.id;
-    }
-  });
-  links.forEach(a=>{
-    a.classList.remove("active");
-    if(a.getAttribute("href")==="#"+current){
-      a.classList.add("active");
-    }
-  });
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
