@@ -5,7 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>제55회 부천지방회 회무록</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+body{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  margin:0;
+  background:#f4f6f9;
+  line-height:1.6;
+}
+header{
+  background:#1e3a8a;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+nav{
+  position:sticky;
+  top:0;
+  background:white;
+  padding:10px;
+  overflow-x:auto;
+  border-bottom:1px solid #ddd;
+  white-space:nowrap;
+}
+nav a{
+  display:inline-block;
+  padding:6px 12px;
+  margin:4px;
+  background:#eef2ff;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:13px;
+}
+.search-box{
+  padding:12px;
+  text-align:center;
+  background:white;
+}
+.search-box input{
+  width:95%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+.page{
+  background:white;
+  padding:20px;
+  margin:16px;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+.page-number{
+  text-align:right;
+  font-size:12px;
+  color:#666;
+  margin-bottom:10px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+th,td{
+  border:1px solid #ddd;
+  padding:6px;
+}
+th{
+  background:#1e3a8a;
+  color:white;
+}
+.total{
+  font-weight:bold;
+  background:#eef2ff;
+}
+@media print{
+  nav,.search-box{display:none;}
+  body{background:white;}
+}
+</style>
 </head>
 <body>
 
@@ -22,17 +98,109 @@
 
 <main id="content">
 
-<!-- ===== 여기부터 69페이지 원문이 정확히 삽입됨 ===== -->
+<!-- ========================================================= -->
+<!-- ======== 69페이지 원문을 아래에 그대로 삽입 ======== -->
+<!-- ========================================================= -->
 
 <section id="page1" class="page">
+<div class="page-number">- 1 -</div>
 <h2>제55회 정기지방회 회무자료</h2>
 <p>기독교대한성결교회 부천지방회</p>
 </section>
 
-<!-- page2 ~ page69 실제 원문 전체 삽입 -->
+<!-- page2 ~ page69 원문 계속 삽입 -->
+
+<!-- 예시 재정 합산 표 -->
+<section id="finance" class="page">
+<div class="page-number">- 재정 -</div>
+<h2>회계 결산 보고</h2>
+
+<table>
+<tr>
+<th>수입 항목</th>
+<th>금액</th>
+</tr>
+<tr><td>이월금</td><td class="income">7,339,995</td></tr>
+<tr><td>지방회비</td><td class="income">41,575,000</td></tr>
+<tr><td>기타수입</td><td class="income">213,439</td></tr>
+<tr class="total"><td>수입 합계</td><td id="incomeTotal"></td></tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<th>지출 항목</th>
+<th>금액</th>
+</tr>
+<tr><td>정기지방회</td><td class="expense">1,960,000</td></tr>
+<tr><td>임원회의비</td><td class="expense">1,200,000</td></tr>
+<tr><td>각부회의비</td><td class="expense">2,378,900</td></tr>
+<tr class="total"><td>지출 합계</td><td id="expenseTotal"></td></tr>
+</table>
+
+<br>
+
+<div class="total">
+최종 잔액: <span id="balance"></span>
+</div>
+
+</section>
 
 </main>
 
-<script src="script.js"></script>
+<script>
+// ===== 자동 목차 생성 =====
+const pages = document.querySelectorAll(".page");
+const toc = document.getElementById("toc");
+
+pages.forEach((page,i)=>{
+  const a = document.createElement("a");
+  a.href = "#" + page.id;
+  a.innerText = i+1;
+  toc.appendChild(a);
+});
+
+// ===== 검색 기능 =====
+document.getElementById("searchInput")
+.addEventListener("keyup",function(){
+  const keyword = this.value.toLowerCase();
+  pages.forEach(page=>{
+    page.style.display =
+      page.innerText.toLowerCase().includes(keyword)
+      ? "block" : "none";
+  });
+});
+
+// ===== 재정 자동 합산 =====
+function calculateFinance(){
+  const incomeCells = document.querySelectorAll(".income");
+  const expenseCells = document.querySelectorAll(".expense");
+
+  let income=0, expense=0;
+
+  incomeCells.forEach(td=>{
+    income += Number(td.innerText.replace(/,/g,""));
+  });
+  expenseCells.forEach(td=>{
+    expense += Number(td.innerText.replace(/,/g,""));
+  });
+
+  if(document.getElementById("incomeTotal"))
+    document.getElementById("incomeTotal").innerText =
+      income.toLocaleString();
+
+  if(document.getElementById("expenseTotal"))
+    document.getElementById("expenseTotal").innerText =
+      expense.toLocaleString();
+
+  if(document.getElementById("balance"))
+    document.getElementById("balance").innerText =
+      (income-expense).toLocaleString() + " 원";
+}
+
+calculateFinance();
+</script>
+
 </body>
 </html>
