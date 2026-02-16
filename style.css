@@ -1,0 +1,62 @@
+body{
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  margin:0;
+  background:#f4f6f9;
+  line-height:1.6;
+}
+header{
+  background:#1e3a8a;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+nav{
+  position:sticky;
+  top:0;
+  background:white;
+  padding:10px;
+  overflow-x:auto;
+  border-bottom:1px solid #ddd;
+}
+nav a{
+  display:inline-block;
+  padding:6px 12px;
+  margin:4px;
+  background:#eef2ff;
+  border-radius:20px;
+  text-decoration:none;
+  font-size:13px;
+}
+.page{
+  background:white;
+  padding:20px;
+  margin:16px;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+th,td{
+  border:1px solid #ddd;
+  padding:6px;
+}
+th{
+  background:#1e3a8a;
+  color:white;
+}
+.search-box{
+  padding:10px;
+  text-align:center;
+}
+.search-box input{
+  width:90%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+@media print{
+  nav,.search-box{display:none;}
+}
